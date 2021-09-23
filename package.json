@@ -12,6 +12,8 @@
     "@cosmjs/proto-signing": "^0.26.0",
     "@cosmjs/stargate": "^0.26.0",
     "cosmjs-types": "^0.2.0",
-    "node-json-rpc": "0.0.1"
+    "node-json-rpc": "0.0.1",
+    "@cosmjs/launchpad": "^0.26.0",
+    "bignumber.js": "^9.0.1"
   }
 }

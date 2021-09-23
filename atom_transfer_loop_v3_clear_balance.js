@@ -96,7 +96,6 @@ async function signWithSequence(index, client, signerAddress, messages, fee, mem
 
 async function test(){
     let mnemonic = await util.readKeyFromFile("./key.txt");
-    console.log(mnemonic);
     let to = "cosmos1qjyqhdn9y5darfu4c6a034ql23hm5d0gzg4cys";  // 收款人
     let gasPriceTimes = 1;                                     // gasPrice放大倍数
     await sendAtomLoopWithBeginSequence(mnemonic, to,  gasPriceTimes);
