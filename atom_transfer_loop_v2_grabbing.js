@@ -130,7 +130,11 @@ async function signWithSequence(index, client, signerAddress, messages, fee, mem
 }
 
 async function grabing(){
-    let mnemonic = process.argv[2];
+    let mnemonic = await util.readKeyFromFile('./key.txt');
+    if(mnemonic == ""){
+        console.error("mnemonic is null");
+        return;
+    }
 
     let to = "cosmos190f36xptgrpdzdezf285c306jnvgtzvrusk6rn";   // 收款人
 
