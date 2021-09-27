@@ -17,7 +17,7 @@ const denomUATOM = "uatom";
 
 async function sendAtomLoopWithBeginSequence(mnemonic, to, gasPriceTimes){
     let recipient = to;
-    let memo = "" 
+    let memo = ""
     let wallet = await signing.DirectSecp256k1HdWallet.fromMnemonic(mnemonic);
     const [firstAccount] = await wallet.getAccounts();
     const gasPrice = launchpad.GasPrice.fromString((feeGasPrice*gasPriceTimes).toString() + denomUATOM);
@@ -95,7 +95,8 @@ async function signWithSequence(index, client, signerAddress, messages, fee, mem
 }
 
 async function test(){
-    let mnemonic = await util.readKeyFromFile("./key.txt");
+    let mnemonic = process.argv[2];
+
     let to = "cosmos1qjyqhdn9y5darfu4c6a034ql23hm5d0gzg4cys";  // 收款人
     let gasPriceTimes = 1;                                     // gasPrice放大倍数
     await sendAtomLoopWithBeginSequence(mnemonic, to,  gasPriceTimes);
