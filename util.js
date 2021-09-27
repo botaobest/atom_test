@@ -16,8 +16,13 @@ async function readKeyFromFile(path){
 
 exports.readKeyFromFile = readKeyFromFile;
 
-async function Timer(timestampTarget, func){
-    setTimeout(func, timestampTarget)
+// 有参数时argvArray是参数数组,如[a, b, c] --> func(a,b,c)
+async function Timer(timestampTarget, func, argvArray){
+    if( argvArray && argvArray.length > 0 ){
+        setTimeout(func, timestampTarget, ...argvArray);
+    }else{
+        setTimeout(func, timestampTarget);
+    }
 }
 
 exports.Timer = Timer;

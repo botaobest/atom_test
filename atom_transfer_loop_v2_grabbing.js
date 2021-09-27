@@ -5,6 +5,7 @@ const launchpad = require("@cosmjs/launchpad");
 const tx_5 = require("cosmjs-types/cosmos/tx/v1beta1/tx");
 const BigNumber = require('bignumber.js');
 const util = require('./util.js');
+const prompt = require('prompt');
 
 // config
 //const rpcEndpoint = "https://rpc.cosmoshub.forbole.com:443/";
@@ -138,20 +139,34 @@ async function grabing(mnemonic){
     await sendAtomLoopWithBeginSequence(mnemonic, to, amount, gasPriceTimes, feeAmount);
 }
 
+//var mnemonic
 async function timerToGrab(){
-    let mnemonic = await util.readKeyFromFile('./key.txt');
+     var schema = {
+            properties: {
+                mnemonic: {
+                    hidden: true
+                }
+            }
+        };
+    let res = await prompt.get(schema);
+
+    let mnemonic = res.mnemonic;
     if(mnemonic == ""){
         console.error("mnemonic is null");
         return;
     }
+
     let now = Date.now();
-    let beginTime = await util.toUtcTimestamp("2021-10-05 12:47:08+08:00");
-    let endTime   = await util.toUtcTimestamp("2021-10-05 12:51:56+08:00");
+
+    let beginTime = await util.toUtcTimestamp("2021-09-27 17:49:08+08:00");
+    let endTime   = await util.toUtcTimestamp("2021-09-27 17:49:56+08:00");
+
 
     // 开始抢
-    util.Timer(beginTime - now, grabing);
+    util.Timer(beginTime - now, grabing, [mnemonic]);
     // 结束程序
-    util.Timer(endTime-now, function(){console.log("Time is up, atom grabing is over"); process.exit()})
+    util.Timer(endTime - now, function(){console.log("Time is up, atom grabing is over"); process.exit()}, [])
+    util.Timer(20000, grabing, [mnemonic]);
 
     for(;;){
         console.log(new Date().toLocaleString(), "server is running");

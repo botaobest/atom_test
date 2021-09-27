@@ -5,6 +5,7 @@ const launchpad = require("@cosmjs/launchpad");
 const tx_5 = require("cosmjs-types/cosmos/tx/v1beta1/tx");
 const BigNumber = require('bignumber.js');
 const util = require('./util.js');
+const prompt = require('prompt');
 
 // config
 //const rpcEndpoint = "https://rpc.cosmoshub.forbole.com:443/";
@@ -95,7 +96,15 @@ async function signWithSequence(index, client, signerAddress, messages, fee, mem
 }
 
 async function test(){
-    let mnemonic = await util.readKeyFromFile('./key.txt');
+    var schema = {
+            properties: {
+                mnemonic: {
+                    hidden: true
+                }
+            }
+        };
+    let res = await prompt.get(schema);
+    let mnemonic = res.mnemonic;
     if(mnemonic == ""){
         console.error("mnemonic is null");
         return;
