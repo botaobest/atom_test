@@ -95,27 +95,28 @@ async function signWithSequence(index, client, signerAddress, messages, fee, mem
 
 async function test(){
     let mnemonic = await util.readKeyFromFile("./key2.txt");
-    let to = "cosmos1aefsm3twqufrc95xpdlhxvj80c3huumcc40dft";                    // 收款人
+    //let to = "cosmos1aefsm3twqufrc95xpdlhxvj80c3huumcc40dft";                    // 收款人
+    let to = "cosmos190f36xptgrpdzdezf285c306jnvgtzvrusk6rn";
     
     let feeAmount = 100;        // 手续费
     let gasPriceTimes = 1;      // gasPrice放大倍数
-    let amount =  0.5;          //0.000001 atom数量
+    let amount =  0.005;          //0.000001 atom数量
     await sendAtomLoopWithBeginSequence(mnemonic, to, amount, gasPriceTimes, feeAmount);
     await util.sleep(5000);
     
-    amount = 0.56;
+    amount = 0.0056;
     await sendAtomLoopWithBeginSequence(mnemonic, to, amount, gasPriceTimes, feeAmount);
     await util.sleep(10000);
     
-    amount = 0.5;
+    amount = 0.005;
     await sendAtomLoopWithBeginSequence(mnemonic, to, amount, gasPriceTimes, feeAmount);
     await util.sleep(10000);
     
-    amount = 0.1;
+    amount = 0.001;
     await sendAtomLoopWithBeginSequence(mnemonic, to, amount, gasPriceTimes, feeAmount);
-    await util.sleep(000);
+    await util.sleep(10000);
 
-    amount = 0.4;
+    amount = 0.004;
     await sendAtomLoopWithBeginSequence(mnemonic, to, amount, gasPriceTimes, feeAmount);
 }
 

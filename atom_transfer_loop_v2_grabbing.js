@@ -129,13 +129,7 @@ async function signWithSequence(index, client, signerAddress, messages, fee, mem
     }
 }
 
-async function grabing(){
-    let mnemonic = await util.readKeyFromFile('./key.txt');
-    if(mnemonic == ""){
-        console.error("mnemonic is null");
-        return;
-    }
-
+async function grabing(mnemonic){
     let to = "cosmos190f36xptgrpdzdezf285c306jnvgtzvrusk6rn";   // 收款人
 
     let feeAmount = 20000;
@@ -145,6 +139,11 @@ async function grabing(){
 }
 
 async function timerToGrab(){
+    let mnemonic = await util.readKeyFromFile('./key.txt');
+    if(mnemonic == ""){
+        console.error("mnemonic is null");
+        return;
+    }
     let now = Date.now();
     let beginTime = await util.toUtcTimestamp("2021-10-05 12:47:08+08:00");
     let endTime   = await util.toUtcTimestamp("2021-10-05 12:51:56+08:00");
