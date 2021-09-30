@@ -9,7 +9,8 @@ const prompt = require('prompt');
 
 // config
 //const rpcEndpoint = "https://rpc.cosmoshub.forbole.com:443/";
-const rpcEndpoint = "https://rpc.cosmos-hub.app.beta.starport.cloud/";
+//const rpcEndpoint = "https://rpc.cosmos-hub.app.beta.starport.cloud/";
+const rpcEndpoint = "http://localhost:26657";
 const feeGas = 100000;          //180000;       // gas数量 用不完不退回
 const feeAmount = 100;      // uatom数量
 const feeGasPrice = 0.025       //uatom 0.025
@@ -110,7 +111,7 @@ async function test(){
         return;
     }
 
-    let to = "cosmos1qjyqhdn9y5darfu4c6a034ql23hm5d0gzg4cys";  // 收款人
+    let to = "cosmos1e8qwl0ymjcz3sh8mammd8eu022276s6mpe63y0";  // 收款人
     let gasPriceTimes = 1;                                     // gasPrice放大倍数
     await sendAtomLoopWithBeginSequence(mnemonic, to,  gasPriceTimes);
 }

@@ -9,7 +9,8 @@ const prompt = require('prompt');
 
 // config
 //const rpcEndpoint = "https://rpc.cosmoshub.forbole.com:443/";
-const rpcEndpoint = "https://rpc.cosmos-hub.app.beta.starport.cloud/";
+//const rpcEndpoint = "https://rpc.cosmos-hub.app.beta.starport.cloud/";
+const rpcEndpoint = "http://localhost:26657";
 const feeGas = 100000;          //180000;       // gas数量 用不完不退回
 //const feeAmount = 100;          // uatom数量
 const feeGasPrice = 0.0025       //uatom 0.025
@@ -39,7 +40,7 @@ async function sendAtomLoopWithBeginSequence(mnemonic, to, fAmount, gasPriceTime
     }
 
     console.log("big amount: ", bigAmount);
-    
+
     let fee = {
         amount: [
             {
@@ -48,7 +49,7 @@ async function sendAtomLoopWithBeginSequence(mnemonic, to, fAmount, gasPriceTime
             },
         ],
         gas: feeGas.toString(), 
-    };   
+    };
 
     let amount = {
         from_address: firstAccount.address,
@@ -75,7 +76,7 @@ async function sendAtomLoopWithBeginSequence(mnemonic, to, fAmount, gasPriceTime
         let signerData = {}
         let i = 0;
         const client = await stargate.SigningStargateClient.connectWithSigner(rpcEndpoint, wallet, options);
-  
+
         let accountRes = await client.getAccount(firstAccount.address);
         //console.log("account: ", accountRes);
 
@@ -131,10 +132,10 @@ async function signWithSequence(index, client, signerAddress, messages, fee, mem
 }
 
 async function grabing(mnemonic){
-    let to = "cosmos190f36xptgrpdzdezf285c306jnvgtzvrusk6rn";   // 收款人
+    let to = "cosmos1e8qwl0ymjcz3sh8mammd8eu022276s6mpe63y0";   // 收款人
 
     let feeAmount = 20000;
-    let amount =  100; //0.000001;                // atom数量
+    let amount =  0.1; //0.000001;                // atom数量
     let gasPriceTimes = 1;          // gasPrice放大倍数
     await sendAtomLoopWithBeginSequence(mnemonic, to, amount, gasPriceTimes, feeAmount);
 }
