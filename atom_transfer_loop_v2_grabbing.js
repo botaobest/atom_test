@@ -166,7 +166,6 @@ async function timerToGrab(){
     util.Timer(beginTime - now, grabing, [mnemonic]);
     // 结束程序
     util.Timer(endTime - now, function(){console.log("Time is up, atom grabing is over"); process.exit()}, [])
-    util.Timer(20000, grabing, [mnemonic]);
 
     for(;;){
         console.log(new Date().toLocaleString(), "server is running");
