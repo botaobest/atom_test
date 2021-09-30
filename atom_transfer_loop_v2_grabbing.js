@@ -135,7 +135,7 @@ async function grabing(mnemonic){
     let to = "cosmos1e8qwl0ymjcz3sh8mammd8eu022276s6mpe63y0";   // 收款人
 
     let feeAmount = 20000;
-    let amount =  0.1; //0.000001;                // atom数量
+    let amount =  0.12; //0.000001;                // atom数量
     let gasPriceTimes = 1;          // gasPrice放大倍数
     await sendAtomLoopWithBeginSequence(mnemonic, to, amount, gasPriceTimes, feeAmount);
 }
