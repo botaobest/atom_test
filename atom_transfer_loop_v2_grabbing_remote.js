@@ -122,7 +122,7 @@ async function signWithSequence(index, client, signerAddress, messages, fee, mem
                break;
             }
 
-            //await util.sleep(10);   
+            await util.sleep(100);
         } catch (error) {
             console.log(error)
         }
@@ -160,8 +160,8 @@ async function timerToGrab(){
     //let beginTime = await util.toUtcTimestamp("2021-10-05 12:47:08+08:00");
     //let endTime   = await util.toUtcTimestamp("2021-10-05 12:51:56+08:00");
 
-    let beginTime = await util.toUtcTimestamp("2021-09-30 16:29:40+08:00");
-    let endTime   = await util.toUtcTimestamp("2021-09-30 16:35:00+08:00");
+    let beginTime = await util.toUtcTimestamp("2021-09-30 16:49:50+08:00");
+    let endTime   = await util.toUtcTimestamp("2021-09-30 16:55:00+08:00");
 
 
     // 开始抢

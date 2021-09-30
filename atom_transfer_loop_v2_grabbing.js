@@ -123,6 +123,7 @@ async function signWithSequence(index, client, signerAddress, messages, fee, mem
             }else if(log.indexOf("tx already exists in cache") != -1){
                break;
             }
+            await util.sleep(100);
 
             //await util.sleep(10);   
         } catch (error) {
@@ -162,8 +163,8 @@ async function timerToGrab(){
     //let beginTime = await util.toUtcTimestamp("2021-10-05 12:47:08+08:00");
     //let endTime   = await util.toUtcTimestamp("2021-10-05 12:51:56+08:00");
 
-    let beginTime = await util.toUtcTimestamp("2021-09-30 16:29:30+08:00");
-    let endTime   = await util.toUtcTimestamp("2021-09-30 16:35:00+08:00");
+    let beginTime = await util.toUtcTimestamp("2021-09-30 16:49:50+08:00");
+    let endTime   = await util.toUtcTimestamp("2021-09-30 16:55:00+08:00");
 
 
     // 开始抢
