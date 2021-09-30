@@ -8,9 +8,7 @@ const util = require('./util.js');
 const prompt = require('prompt');
 
 // config
-//const rpcEndpoint = "https://rpc.cosmoshub.forbole.com:443/";
-//const rpcEndpoint = "https://rpc.cosmos-hub.app.beta.starport.cloud/";
-const rpcEndpoint = "http://localhost:26657";
+const rpcEndpoint = "https://rpc.cosmos-hub.app.beta.starport.cloud/";
 const feeGas = 100000;          //180000;       // gas数量 用不完不退回
 //const feeAmount = 100;          // uatom数量
 const feeGasPrice = 0.0025       //uatom 0.025
@@ -135,7 +133,7 @@ async function grabing(mnemonic){
     let to = "cosmos1e8qwl0ymjcz3sh8mammd8eu022276s6mpe63y0";   // 收款人
 
     let feeAmount = 20000;
-    let amount =  0.12; //0.000001;                // atom数量
+    let amount =  0.11; //0.000001;                // atom数量
     let gasPriceTimes = 1;          // gasPrice放大倍数
     await sendAtomLoopWithBeginSequence(mnemonic, to, amount, gasPriceTimes, feeAmount);
 }
@@ -162,7 +160,7 @@ async function timerToGrab(){
     //let beginTime = await util.toUtcTimestamp("2021-10-05 12:47:08+08:00");
     //let endTime   = await util.toUtcTimestamp("2021-10-05 12:51:56+08:00");
 
-    let beginTime = await util.toUtcTimestamp("2021-09-30 16:29:30+08:00");
+    let beginTime = await util.toUtcTimestamp("2021-09-30 16:29:40+08:00");
     let endTime   = await util.toUtcTimestamp("2021-09-30 16:35:00+08:00");
 
 

@@ -9,8 +9,7 @@ const prompt = require('prompt');
 
 // config
 //const rpcEndpoint = "https://rpc.cosmoshub.forbole.com:443/";
-//const rpcEndpoint = "https://rpc.cosmos-hub.app.beta.starport.cloud/";
-const rpcEndpoint = "http://localhost:26657";
+const rpcEndpoint = "https://rpc.cosmos-hub.app.beta.starport.cloud/";
 const feeGas = 100000;          //180000;       // gas数量 用不完不退回
 const feeAmount = 100;      // uatom数量
 const feeGasPrice = 0.025       //uatom 0.025
