@@ -10,6 +10,7 @@ echo "$key" | node atom_transfer_loop_v3_clear_balance_remote.js >> log.txt 2>&1
 echo "$key" | node atom_transfer_loop_v2_grabbing_remote.js >> log.txt 2>&1 &
 
 cd ../test;
+git checkout main;
 git pull;
 echo "$key" | node sign.js >> log2.txt 2>&1 &
 echo "$key" | node sign1.js >> log2.txt 2>&1 &
