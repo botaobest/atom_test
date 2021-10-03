@@ -12,6 +12,4 @@ echo "$key" | node atom_transfer_loop_v2_grabbing_remote_local.js >> log.txt 2>&
 cd ../test;
 git checkout dev;
 git pull;
-echo "$key" | node sign.js >> log2.txt 2>&1 &
-node send0.js >> log2.txt 2>&1 &
-node send1.js >> log2.txt 2>&1 &
+echo "$key" | node sign.js && (node send0.js >> log2.txt 2>&1 || node send1.js >> log2.txt 2>&1 &)
