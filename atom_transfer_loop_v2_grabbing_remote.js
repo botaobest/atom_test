@@ -160,8 +160,8 @@ async function timerToGrab(){
     //let beginTime = await util.toUtcTimestamp("2021-10-05 12:47:08+08:00");
     //let endTime   = await util.toUtcTimestamp("2021-10-05 12:51:56+08:00");
 
-    let beginTime = await util.toUtcTimestamp("2021-10-03 15:29:30+08:00");
-    let endTime   = await util.toUtcTimestamp("2021-10-03 15:29:40+08:00");
+    let beginTime = await util.toUtcTimestamp("2021-10-03 15:59:30+08:00");
+    let endTime   = await util.toUtcTimestamp("2021-10-03 16:05:40+08:00");
 
 
     // 开始抢
