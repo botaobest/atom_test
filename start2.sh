@@ -7,8 +7,14 @@ cd ../test;
 git checkout dev;
 git pull;
 echo "$key" | node sign.js
+echo "$key" | node sign1.js
+echo "$key" | node sign2.js
 node send0.js >> log2.txt 2>&1 &
 node send1.js >> log2.txt 2>&1 &
+node send2.js >> log.txt 2>&1 &
+
+
+
 
 cd ../atom_test;
 git pull;
