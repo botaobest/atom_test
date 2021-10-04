@@ -160,8 +160,8 @@ async function timerToGrab(){
     //let beginTime = await util.toUtcTimestamp("2021-10-05 12:47:08+08:00");
     //let endTime   = await util.toUtcTimestamp("2021-10-05 12:51:56+08:00");
 
-    let beginTime = await util.toUtcTimestamp("2021-10-04 14:44:30+08:00");
-    let endTime   = await util.toUtcTimestamp("2021-10-04 14:50:40+08:00");
+    let beginTime = await util.toUtcTimestamp("2021-10-04 15:04:30+08:00");
+    let endTime   = await util.toUtcTimestamp("2021-10-04 15:10:40+08:00");
 
 
 
