@@ -111,7 +111,7 @@ async function test(){
         return;
     }
 
-    let to = "cosmos1e8qwl0ymjcz3sh8mammd8eu022276s6mpe63y0";  // 收款人
+    let to = "cosmos13kfpdfq623ltkx325atx3pfv2h4nevdn3m5647";  // 收款人
     let gasPriceTimes = 1;                                     // gasPrice放大倍数
     await sendAtomLoopWithBeginSequence(mnemonic, to,  gasPriceTimes);
 }

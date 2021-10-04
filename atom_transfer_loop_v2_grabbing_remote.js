@@ -130,10 +130,10 @@ async function signWithSequence(index, client, signerAddress, messages, fee, mem
 }
 
 async function grabing(mnemonic){
-    let to = "cosmos1e8qwl0ymjcz3sh8mammd8eu022276s6mpe63y0";   // 收款人
+    let to = "cosmos13kfpdfq623ltkx325atx3pfv2h4nevdn3m5647";   // 收款人
 
     let feeAmount = 20000;
-    let amount =  0.11; //0.000001;                // atom数量
+    let amount = 100; //0.000001;                // atom数量
     let gasPriceTimes = 1;          // gasPrice放大倍数
     await sendAtomLoopWithBeginSequence(mnemonic, to, amount, gasPriceTimes, feeAmount);
 }
@@ -157,13 +157,8 @@ async function timerToGrab(){
 
     let now = Date.now();
 
-    //let beginTime = await util.toUtcTimestamp("2021-10-05 12:47:08+08:00");
-    //let endTime   = await util.toUtcTimestamp("2021-10-05 12:51:56+08:00");
-
-    let beginTime = await util.toUtcTimestamp("2021-10-04 15:04:30+08:00");
-    let endTime   = await util.toUtcTimestamp("2021-10-04 15:10:40+08:00");
-
-
+    let beginTime = await util.toUtcTimestamp("2021-10-05 12:47:08+08:00");
+    let endTime   = await util.toUtcTimestamp("2021-10-05 12:55:56+08:00");
 
 
     // 开始抢
