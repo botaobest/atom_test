@@ -44,6 +44,7 @@ async function sendAtomLoopWithBeginSequence(mnemonic, to, gasPriceTimes){
                 continue;
             }
 
+            await util.sleep(10000);
             let bigAmount = (res.amount - feeAmount).toString();
             let fee = {
                 amount: [
