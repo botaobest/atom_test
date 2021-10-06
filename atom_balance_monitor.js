@@ -6,25 +6,45 @@ const tx_5 = require("cosmjs-types/cosmos/tx/v1beta1/tx");
 const rpcEndpoint = "https://rpc.cosmos-hub.app.beta.starport.cloud/";
 const util = require("./util.js");
 
+var balanceMap = new Map();
+
 async function getAllBalance(address){
-   //let wallet = await signing.DirectSecp256k1HdWallet.fromMnemonic();
+    //console.log("balance map:", balanceMap);
     const options = { };
     const client = await stargate.SigningStargateClient.connectWithSigner(rpcEndpoint, {}, options);
     let res = await client.getAllBalances(address);
     //console.log(address, "all balance: ", res);
     if(res.length > 0){
         let atomBalanceObj = res[res.length-1];
-        if(atomBalanceObj &&  atomBalanceObj.denom == "uatom" && atomBalanceObj.amount != '0'){
-            console.log(new Date().toLocaleString(), address, atomBalanceObj);
+        if(atomBalanceObj &&  atomBalanceObj.denom == "uatom"){
+            let balance = parseInt(atomBalanceObj.amount)/1000000;
+            console.log(new Date().toLocaleString(), address, "atom:", balance);
+            if( !balanceMap.has(address) ){
+                balanceMap.set(address, balance);
+                return;
+            }
+            let balanceBefore = balanceMap.get(address);
+            if(balanceBefore != balance){
+                let diff = balance - balanceBefore;
+                console.log(new Date().toLocaleString(), address, "diff: ", diff);
+                balanceMap.set(address, balance);
+            }
         }
     }
 }
 
 async function monitor(address){
     for(;;){
-        console.log(new Date().toLocaleString(), "balance is running");
-        await getAllBalance(address);
-        await util.sleep(1000);
+        try {
+            console.log(new Date().toLocaleString(), "balance monitor is running");
+            await getAllBalance(address);
+            await util.sleep(1000);
+        } catch (e) {
+            /* handle error */
+            console.log(e);
+            await util.sleep(3000);
+            continue;
+        }
     }
 }
 
