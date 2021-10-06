@@ -11,15 +11,22 @@ async function getAllBalance(address){
     const options = { };
     const client = await stargate.SigningStargateClient.connectWithSigner(rpcEndpoint, {}, options);
     let res = await client.getAllBalances(address);
-    console.log(address, "all balance: ", res);
+    //console.log(address, "all balance: ", res);
+    if(res.length > 0){
+        let atomBalanceObj = res[res.length-1];
+        if(atomBalanceObj &&  atomBalanceObj.denom == "uatom" && atomBalanceObj.amount != '0'){
+            console.log(new Date().toLocaleString(), address, atomBalanceObj);
+        }
+    }
 }
 
 async function monitor(address){
     for(;;){
+        console.log(new Date().toLocaleString(), "balance is running");
         await getAllBalance(address);
         await util.sleep(1000);
     }
 }
 
-monitor("cosmos1aefsm3twqufrc95xpdlhxvj80c3huumcc40dft");
-monitor("cosmos190f36xptgrpdzdezf285c306jnvgtzvrusk6rn");
+monitor("cosmos1njjlfh5q9j7vla8l76frr7zed22w8zfjf8jdhw");
+monitor("cosmos13kfpdfq623ltkx325atx3pfv2h4nevdn3m5647");
