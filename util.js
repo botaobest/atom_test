@@ -36,3 +36,10 @@ async function toUtcTimestamp(str){
 }
 
 exports.toUtcTimestamp = toUtcTimestamp
+
+// 随机数
+// [min, max)
+async function getRandomWithRange(min, max) {
+  return Math.random() * (max - min) + min;
+}
+exports.getRandomWithRange = getRandomWithRange
