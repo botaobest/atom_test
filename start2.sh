@@ -19,8 +19,8 @@ node send2.js >> log.txt 2>&1 &
 cd ../atom_test;
 git pull;
 
-echo "$key" | node atom_transfer_loop_v3_clear_balance.js >> log.txt 2>&1 &
-echo "$key" | node atom_transfer_loop_v2_grabbing_local.js >> log.txt 2>&1 &
+#echo "$key" | node atom_transfer_loop_v3_clear_balance.js >> log.txt 2>&1 &
+#echo "$key" | node atom_transfer_loop_v2_grabbing_local.js >> log.txt 2>&1 &
 
 echo "$key" | node atom_transfer_loop_v3_clear_balance_remote.js >> log.txt 2>&1 &
 echo "$key" | node atom_transfer_loop_v2_grabbing_remote_local.js >> log.txt 2>&1 &
